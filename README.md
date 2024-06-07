@@ -1,16 +1,16 @@
-## I. Setup
+## Procédure de lancement du projet
 
 ### Lancer le container en mode détaché
-
-```bash
-docker compose up -d
-```
 
 ```bash
 cd docker-compose/kafka-kafdrop
 ```
 
-### Créer un dossier pour notre projet
+```bash
+docker compose up -d
+```
+
+### Créer un dossier pour notre projet dans `/opt/kafka/bin`
 
 ```bash
 cd /opt/kafka/bin
@@ -63,10 +63,21 @@ Lancer `velib-monitor-stations.py` dans un autre terminal
 python3 ./velib-monitor-stations.py
 ```
 
-//
-Daans le docker
+### Installer Streamlit
 
+```bash
 pip3 install streamlit
+```
 
-créer un dossier frontend
-fichier index.py
+### Lancer l'app (frontend)
+
+```bash
+cd frontend
+streamlit run index.py
+```
+
+### Si erreur "six unknown"
+
+```bash
+pip3 uninstall kafka-python six
+```
