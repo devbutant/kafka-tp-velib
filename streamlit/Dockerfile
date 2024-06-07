@@ -4,7 +4,6 @@ WORKDIR /app
 
 COPY . .
 
-RUN pip install streamlit \
-    && echo "Ok, ça run"
+RUN pip install streamlit python-socketio
 
 CMD ["streamlit", "run", "app.py"]
