@@ -9,7 +9,7 @@ st.set_page_config(layout='wide')  # DÃ©finir la disposition de la page sur 'w
 def create_consumer():
   consumer = KafkaConsumer(
     'velib-stations',
-    bootstrap_servers=['localhost:9092'],
+    bootstrap_servers=['kafka-kafdrop-kafka-1:9092'],
     auto_offset_reset='latest',  
     enable_auto_commit=True,
     group_id='velib-monitor-stations',
