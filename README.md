@@ -63,7 +63,7 @@ Créer un compte sur https://developer.jcdecaux.com/#/signup.
 
 Une fois que vous aurez créé votre compte, vous disposerez d'une clé d'API affichée dans votre compte utilisateur.
 
-Si votre clé d'API est "XXX", vous pouvez la renseigner dans les fichier `velib-get-stations.py` et `velib-monitor-stations.py`
+Si votre clé d'API est "XXX", vous pouvez la renseigner dans les fichier `velib-get-stations.py`
 
 ### [Conteneur] Créer le script `velib-get-stations.py` dans notre dossier `projet-velib`
 
@@ -73,7 +73,7 @@ touch velib-get-stations.py
 nano velib-get-stations.py
 ```
 
-Y insérer le contenu présent dans le fichier `resources/velib-get-stations.py`
+Y insérer le contenu présent dans le fichier `resources/velib-get-stations.py` sans oublier de renseigner votre clé api
 
 ### [Conteneur] Créer le script `velib-monitor-stations.py` dans notre dossier `projet-velib`
 
