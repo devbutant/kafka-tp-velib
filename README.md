@@ -16,7 +16,7 @@ cd docker-compose/kafka-kafdrop
 docker compose up -d
 ```
 
-### Rendre le container "kafka" interactif
+### Rendre le container `obsidiandynamics/kafka` interactif
 
 Lister les container en cours d'éxécution
 
