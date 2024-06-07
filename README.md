@@ -62,3 +62,11 @@ Lancer `velib-monitor-stations.py` dans un autre terminal
 ```bash
 python3 ./velib-monitor-stations.py
 ```
+
+//
+Daans le docker
+
+pip3 install streamlit
+
+créer un dossier frontend
+fichier index.py
