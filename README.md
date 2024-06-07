@@ -1,6 +1,12 @@
 ## Procédure de lancement du projet
 
-### Lancer le container en mode détaché
+### Clôner ce projet
+
+```bash
+git clone https://github.com/devbutime/kafka-tp-velib.git ./chemin-dossier-hote
+```
+
+### Lancer le docker-compose en mode détaché
 
 ```bash
 cd docker-compose/kafka-kafdrop
@@ -10,20 +16,48 @@ cd docker-compose/kafka-kafdrop
 docker compose up -d
 ```
 
-### Créer un dossier pour notre projet dans `/opt/kafka/bin`
+### Rendre le container "kafka" interactif
+
+Lister les container en cours d'éxécution
+
+```bash
+docker ps
+```
+
+Exemple de la liste de container que vous pourriez avoir :
+
+```bash
+824359ab74f5   obsidiandynamics/kafdrop   "/kafdrop.sh"            2 days ago   Up 5 seconds   0.0.0.0:9000->9000/tcp                           kafka-kafdrop-kafdrop-1
+
+3f4df5dc83cf   obsidiandynamics/kafka     "/bin/sh -c /opt/kaf…"   2 days ago   Up 5 seconds   0.0.0.0:2181->2181/tcp, 0.0.0.0:9092->9092/tcp   kafka-kafdrop-kafka-1
+```
+
+Utiliser l'id correspondant au container (listé précédemment)
+
+```bash
+docker exec -it 3f4df5dc83cf /bin/bash
+```
+
+Un terminal est maintenant disponible, similaire à ceci :
+
+```bash
+bash-4.4#
+```
+
+### [Conteneur] Créer un dossier pour notre projet dans `/opt/kafka/bin`
 
 ```bash
 cd /opt/kafka/bin
 mkdir projet-velib
 ```
 
-### Installer la commande linux `nano` pour éditer nos fichiers
+### [Conteneur] Installer la commande linux `nano` pour éditer nos fichiers
 
 ```bash
 apk add nano
 ```
 
-### Créer le script `velib-get-stations.py` dans notre dossier `projet-velib`
+### [Conteneur] Créer le script `velib-get-stations.py` dans notre dossier `projet-velib`
 
 ```bash
 cd projet-velib
@@ -33,7 +67,7 @@ nano velib-get-stations.py
 
 Y insérer le contenu présent dans le fichier `resources/velib-get-stations.py`
 
-### Créer le script `velib-monitor-stations.py` dans notre dossier `projet-velib`
+### [Conteneur] Créer le script `velib-monitor-stations.py` dans notre dossier `projet-velib`
 
 ```bash
 cd projet-velib
@@ -43,13 +77,13 @@ nano velib-monitor-stations.py
 
 Y insérer le contenu présent dans le fichier `resources/velib-get-stations.py`
 
-### Installer Python
+### [Conteneur] Installer Python
 
 ```bash
 apk add --no-cache python3 py3-pip
 ```
 
-### Lancer les deux script dans un terminal différent
+### [Conteneur] Lancer les deux script dans deux terminaux différents
 
 Lancer `velib-get-stations.py` dans un terminal
 
@@ -63,7 +97,7 @@ Lancer `velib-monitor-stations.py` dans un autre terminal
 python3 ./velib-monitor-stations.py
 ```
 
-### Installer Streamlit
+### [Conteneur] Installer Streamlit
 
 ```bash
 pip3 install streamlit
@@ -76,8 +110,13 @@ cd frontend
 streamlit run index.py
 ```
 
-### Si erreur "six unknown"
+### Si erreur `ModuleNotFoundError: No module named 'kafka.vendor.six.moves'`
+
+Désinstaller et réinstaller `six` peut parfois résourdre la problématique
 
 ```bash
 pip3 uninstall kafka-python six
+pip3 install kafka-python six
 ```
+
+L'application est disponible à l'adresse suivante : `http://localhost:8501/`
