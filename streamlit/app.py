@@ -1,0 +1,1 @@
+print("L'application Streamlit fonctionne correctement !")
