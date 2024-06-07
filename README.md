@@ -57,6 +57,14 @@ mkdir projet-velib
 apk add nano
 ```
 
+### Obtenir une clé d'API
+
+Créer un compte sur https://developer.jcdecaux.com/#/signup.
+
+Une fois que vous aurez créé votre compte, vous disposerez d'une clé d'API affichée dans votre compte utilisateur.
+
+Si votre clé d'API est "XXX", vous pouvez la renseigner dans les fichier `velib-get-stations.py` et `velib-monitor-stations.py`
+
 ### [Conteneur] Créer le script `velib-get-stations.py` dans notre dossier `projet-velib`
 
 ```bash
