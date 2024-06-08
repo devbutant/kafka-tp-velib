@@ -6,6 +6,19 @@
 git clone https://github.com/devbutime/kafka-tp-velib.git ./my-app
 ```
 
+### 2. Obtenir une clé d'API
+
+Créer un compte sur https://developer.jcdecaux.com/#/signup.
+
+Une fois que vous aurez créé votre compte, vous disposerez d'une clé d'API affichée dans votre compte utilisateur.
+Pas de clé ? Utilisez celle-ci pour tester l'app : `276cc6afca8905b9ad02fc3fd2a0d824667d4e04`
+Renseigner la clé dans le fichier `setup.sh`
+
+```bash
+API_KEY = "XXX" # Pas de clé api ? Utilisez celle ci pour un test : 276cc6afca8905b9ad02fc3fd2a0d824667d4e04
+
+```
+
 ## [Linux] Lancer l'application depuis un script bash
 
 ```bash
@@ -24,20 +37,7 @@ L'application est disponible à l'adresse suivante : `http://localhost:8501/`
 git clone https://github.com/devbutime/kafka-tp-velib.git ./my-app
 ```
 
-### 2. Obtenir une clé d'API
-
-Créer un compte sur https://developer.jcdecaux.com/#/signup.
-
-Une fois que vous aurez créé votre compte, vous disposerez d'une clé d'API affichée dans votre compte utilisateur.
-Pas de clé ? Utilisez celle-ci pour tester l'app : 276cc6afca8905b9ad02fc3fd2a0d824667d4e04
-Renseigner la clé dans le fichier `setup.sh`
-
-```bash
-API_KEY = "XXX" # Pas de clé api ? Utilisez celle ci pour un test : 276cc6afca8905b9ad02fc3fd2a0d824667d4e04
-
-```
-
-### 3. Lancer le docker-compose en mode détaché
+### 2. Lancer le docker-compose en mode détaché
 
 ```bash
 cd my-app/tp-kafka/docker-compose/kafka-kafdrop
@@ -51,31 +51,31 @@ docker compose build
 docker compose up -d
 ```
 
-### Rendre le container `obsidiandynamics/kafka` interactif
+### 3. Rendre le container `obsidiandynamics/kafka` interactif
 
 ```bash
 docker exec -it kafka-kafdrop-kafka-1 /bin/bash
 ```
 
-### [Conteneur] Installer Python et kafka-python
+### 4. [Conteneur] Installer Python et kafka-python
 
 ```bash
 apk add --no-cache python3 py3-pip; pip3 install kafka-python
 ```
 
-### Rendre le container `obsidiandynamics/kafka` interactif
+### 5. Rendre le container `obsidiandynamics/kafka` interactif
 
 ```bash
 docker exec -it kafka-kafdrop-kafka-1 /bin/bash
 ```
 
-### [Conteneur] Installer Python et kafka-python
+### 6. [Conteneur] Installer Python et kafka-python
 
 ```bash
 apk add --no-cache python3 py3-pip; pip3 install kafka-python
 ```
 
-### [Conteneur] Lancer les deux script dans deux terminaux différents
+### 7. [Conteneur] Lancer les deux script dans deux terminaux différents
 
 Lancer `velib-get-stations.py` dans un terminal
 
