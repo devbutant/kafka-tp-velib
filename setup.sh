@@ -2,8 +2,7 @@
 
 # Variables
 DOCKER_COMPOSE_DIR="tp-kafka/docker-compose/kafka-kafdrop"
-API_KEY=""
-# Pas de clé api ? Utilisez celle ci pour effectuer un test : 276cc6afca8905b9ad02fc3fd2a0d824667d4e04
+API_KEY="XXX" # Pas de clé api ? Utilisez celle renseignée dans le README.md
 PYTHON_SCRIPT="tp-kafka/resources/velib-get-stations.py"
 
 # Étape 2: Ajouter la clé d'API dans le script Python
