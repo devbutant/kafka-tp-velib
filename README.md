@@ -14,6 +14,8 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
+L'application est disponible à l'adresse suivante : `http://localhost:8501/`
+
 ## Setup manuel
 
 ### Lancer le docker-compose en mode détaché
