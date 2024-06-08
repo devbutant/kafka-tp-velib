@@ -3,8 +3,18 @@
 ### Clôner ce projet
 
 ```bash
-git clone https://github.com/devbutime/kafka-tp-velib.git ./chemin-dossier-hote
+git clone https://github.com/devbutime/kafka-tp-velib.git ./my-app
 ```
+
+## Linux (possible de setup l'app automatiquement)
+
+```bash
+cd ./my-app
+chmod +x setup.sh
+./setup.sh
+```
+
+## Setup manuel
 
 ### Lancer le docker-compose en mode détaché
 

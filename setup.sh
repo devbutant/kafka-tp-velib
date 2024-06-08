@@ -2,7 +2,8 @@
 
 # Variables
 DOCKER_COMPOSE_DIR="tp-kafka/docker-compose/kafka-kafdrop"
-API_KEY="276cc6afca8905b9ad02fc3fd2a0d824667d4e04"
+API_KEY=""
+# Pas de clé api ? Utilisez celle ci pour effectuer un test : 276cc6afca8905b9ad02fc3fd2a0d824667d4e04
 PYTHON_SCRIPT="tp-kafka/resources/velib-get-stations.py"
 
 # Étape 2: Ajouter la clé d'API dans le script Python
@@ -24,8 +25,8 @@ docker exec -it $CONTAINER_ID apk add --no-cache python3 py3-pip
 docker exec -it $CONTAINER_ID pip3 install kafka-python
 
 # Étape 5: Lancer les scripts Python dans des terminaux différents
-echo "Attente de 3 secondes avant la récupération des données en temps réel..."
-sleep 3
+echo "Attente de 5 secondes avant la récupération des données en temps réel..."
+sleep 5
 echo "Lancement des scripts Python..."
 docker exec -it $CONTAINER_ID /bin/bash -c "cd /opt/kafka/bin/resources && python3 ./velib-get-stations.py"
 

@@ -6,7 +6,7 @@ image:
   pullPolicy: Always
 
 kafka:
-  brokerConnect: localhost:9092
+  brokerConnect: kafka-kafdrop-kafka-1:9092
   properties: ""
   truststore: ""
   keystore: ""
@@ -70,6 +70,6 @@ podLabels: {}
 
 hostAliases: []
 
-mountProtoDesc: 
+mountProtoDesc:
   enabled: false
   hostPath:
