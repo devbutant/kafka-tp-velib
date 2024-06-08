@@ -63,7 +63,37 @@ docker exec -it kafka-kafdrop-kafka-1 /bin/bash
 apk add --no-cache python3 py3-pip; pip3 install kafka-python
 ```
 
+<<<<<<< HEAD
+
 ### [Conteneur] Lancer le script `velib-get-stations.py`
+
+=======
+
+### Renseigner votre clé API dans le fichier `velib-get-stations.py`
+
+```bash
+API_KEY = "XXX" # Pas de clé api ? Utilisez celle ci pour un test : 276cc6afca8905b9ad02fc3fd2a0d824667d4e04
+
+=======
+```
+
+### Rendre le container `obsidiandynamics/kafka` interactif
+
+```bash
+docker exec -it kafka-kafdrop-kafka-1 /bin/bash
+```
+
+### [Conteneur] Installer Python et kafka-python
+
+```bash
+apk add --no-cache python3 py3-pip; pip3 install kafka-python
+```
+
+### [Conteneur] Lancer les deux script dans deux terminaux différents
+
+Lancer `velib-get-stations.py` dans un terminal
+
+> > > > > > > e28090d449615baf1c1c0c930b683fa93438391b
 
 ```bash
 python3 opt/kafka/bin/resources/velib-get-stations.py
