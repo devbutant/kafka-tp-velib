@@ -3,6 +3,7 @@ from kafka import KafkaConsumer
 
 stations = {}
 consumer = KafkaConsumer("velib-stations", bootstrap_servers='localhost:9092', group_id="velib-monitor-stations")
+
 for message in consumer:
     station = json.loads(message.value.decode())
     station_number = station["number"]

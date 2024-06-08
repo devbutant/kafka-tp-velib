@@ -1,6 +1,6 @@
 # Procédure de lancement du projet
 
-### Clôner ce projet
+### 1. Clôner ce projet
 
 ```bash
 git clone https://github.com/devbutime/kafka-tp-velib.git ./my-app
@@ -63,6 +63,19 @@ apk add --no-cache python3 py3-pip; pip3 install kafka-python
 ```bash
 API_KEY = "XXX" # Pas de clé api ? Utilisez celle ci pour un test : 276cc6afca8905b9ad02fc3fd2a0d824667d4e04
 
+=======
+```
+
+### Rendre le container `obsidiandynamics/kafka` interactif
+
+```bash
+docker exec -it kafka-kafdrop-kafka-1 /bin/bash
+```
+
+### [Conteneur] Installer Python et kafka-python
+
+```bash
+apk add --no-cache python3 py3-pip; pip3 install kafka-python
 ```
 
 ### [Conteneur] Lancer les deux script dans deux terminaux différents
