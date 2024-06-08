@@ -4,7 +4,7 @@ import urllib.request
 
 from kafka import KafkaProducer
 
-API_KEY = "XXX" # FIXME RENSEIGNEZ VOTRE CLEF API JCDECAUX ICI
+API_KEY = "276cc6afca8905b9ad02fc3fd2a0d824667d4e04" # FIXME RENSEIGNEZ VOTRE CLEF API JCDECAUX ICI
 url = "https://api.jcdecaux.com/vls/v1/stations?apiKey={}".format(API_KEY)
 
 producer = KafkaProducer(bootstrap_servers="localhost:9092")

@@ -1,5 +1,11 @@
 version: "2"
 services:
+  frontend:
+    build: ../../../frontend
+    ports:
+      - "8501:8501"
+    depends_on:
+      - kafka
   kafdrop:
     image: obsidiandynamics/kafdrop
     restart: "no"
