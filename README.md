@@ -1,4 +1,4 @@
-## Procédure de lancement du projet
+# Procédure de lancement du projet
 
 ### Clôner ce projet
 
@@ -6,7 +6,7 @@
 git clone https://github.com/devbutime/kafka-tp-velib.git ./my-app
 ```
 
-## Linux (possible de setup l'app automatiquement)
+## [Linux] Lancer l'application depuis un script bash
 
 ```bash
 cd ./my-app
@@ -18,10 +18,28 @@ L'application est disponible à l'adresse suivante : `http://localhost:8501/`
 
 ## Setup manuel
 
-### Lancer le docker-compose en mode détaché
+### 1. Clôner ce projet
 
 ```bash
-cd docker-compose/kafka-kafdrop
+git clone https://github.com/devbutime/kafka-tp-velib.git ./my-app
+```
+
+### 2. Obtenir une clé d'API
+
+Créer un compte sur https://developer.jcdecaux.com/#/signup.
+
+Une fois que vous aurez créé votre compte, vous disposerez d'une clé d'API affichée dans votre compte utilisateur.
+
+Si votre clé d'API est "XXX", vous pouvez la renseigner dans le fichier `my-app/tp-kafka/resources/velib-get-stations.py`
+
+### 3. Lancer le docker-compose en mode détaché
+
+```bash
+cd my-app/tp-kafka/docker-compose/kafka-kafdrop
+```
+
+```bash
+docker compose build
 ```
 
 ```bash
@@ -30,77 +48,21 @@ docker compose up -d
 
 ### Rendre le container `obsidiandynamics/kafka` interactif
 
-Lister les container en cours d'éxécution
-
 ```bash
-docker ps
+docker exec -it kafka-kafdrop-kafka-1 /bin/bash
 ```
 
-Exemple de la liste de container que vous pourriez avoir :
+### [Conteneur] Installer Python et kafka-python
 
 ```bash
-824359ab74f5   obsidiandynamics/kafdrop   "/kafdrop.sh"            2 days ago   Up 5 seconds   0.0.0.0:9000->9000/tcp                           kafka-kafdrop-kafdrop-1
-
-3f4df5dc83cf   obsidiandynamics/kafka     "/bin/sh -c /opt/kaf…"   2 days ago   Up 5 seconds   0.0.0.0:2181->2181/tcp, 0.0.0.0:9092->9092/tcp   kafka-kafdrop-kafka-1
+apk add --no-cache python3 py3-pip; pip3 install kafka-python
 ```
 
-Utiliser l'id correspondant au container (listé précédemment)
+### Renseigner votre clé API dans le fichier `velib-get-stations.py`
 
 ```bash
-docker exec -it 3f4df5dc83cf /bin/bash
-```
+API_KEY = "XXX" # Pas de clé api ? Utilisez celle ci pour un test : 276cc6afca8905b9ad02fc3fd2a0d824667d4e04
 
-Un terminal est maintenant disponible, similaire à ceci :
-
-```bash
-bash-4.4#
-```
-
-### [Conteneur] Créer un dossier pour notre projet dans `/opt/kafka/bin`
-
-```bash
-cd /opt/kafka/bin
-mkdir projet-velib
-```
-
-### [Conteneur] Installer la commande linux `nano` pour éditer nos fichiers
-
-```bash
-apk add nano
-```
-
-### Obtenir une clé d'API
-
-Créer un compte sur https://developer.jcdecaux.com/#/signup.
-
-Une fois que vous aurez créé votre compte, vous disposerez d'une clé d'API affichée dans votre compte utilisateur.
-
-Si votre clé d'API est "XXX", vous pouvez la renseigner dans les fichier `velib-get-stations.py`
-
-### [Conteneur] Créer le script `velib-get-stations.py` dans notre dossier `projet-velib`
-
-```bash
-cd projet-velib
-touch velib-get-stations.py
-nano velib-get-stations.py
-```
-
-Y insérer le contenu présent dans le fichier `resources/velib-get-stations.py` sans oublier de renseigner votre clé api
-
-### [Conteneur] Créer le script `velib-monitor-stations.py` dans notre dossier `projet-velib`
-
-```bash
-cd projet-velib
-touch velib-monitor-stations.py
-nano velib-monitor-stations.py
-```
-
-Y insérer le contenu présent dans le fichier `resources/velib-get-stations.py`
-
-### [Conteneur] Installer Python
-
-```bash
-apk add --no-cache python3 py3-pip
 ```
 
 ### [Conteneur] Lancer les deux script dans deux terminaux différents
@@ -108,35 +70,7 @@ apk add --no-cache python3 py3-pip
 Lancer `velib-get-stations.py` dans un terminal
 
 ```bash
-python3 ./velib-get-stations.py
+python3 opt/kafka/bin/resources/velib-get-stations.py
 ```
 
-Lancer `velib-monitor-stations.py` dans un autre terminal
-
-```bash
-python3 ./velib-monitor-stations.py
-```
-
-### [Conteneur] Installer Streamlit
-
-```bash
-pip3 install streamlit
-```
-
-### Lancer l'app (frontend)
-
-```bash
-cd frontend
-streamlit run index.py
-```
-
-### Si erreur `ModuleNotFoundError: No module named 'kafka.vendor.six.moves'`
-
-Désinstaller et réinstaller `six` peut parfois résourdre la problématique
-
-```bash
-pip3 uninstall kafka-python six
-pip3 install kafka-python six
-```
-
-L'application est disponible à l'adresse suivante : `http://localhost:8501/`
+L'application est disponible à l'adresse suivante : http://localhost:8501/ avec les données en temps réel
