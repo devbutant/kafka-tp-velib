@@ -1,4 +1,22 @@
-## Procédure de lancement du projet
+# Procédure de lancement du projet
+
+### 1. Clôner ce projet
+
+```bash
+git clone https://github.com/devbutime/kafka-tp-velib.git ./my-app
+```
+
+## [Linux] Lancer l'application depuis un script bash
+
+```bash
+cd ./my-app
+chmod +x setup.sh
+./setup.sh
+```
+
+L'application est disponible à l'adresse suivante : `http://localhost:8501/`
+
+## Setup manuel
 
 ### 1. Clôner ce projet
 
@@ -11,8 +29,13 @@ git clone https://github.com/devbutime/kafka-tp-velib.git ./my-app
 Créer un compte sur https://developer.jcdecaux.com/#/signup.
 
 Une fois que vous aurez créé votre compte, vous disposerez d'une clé d'API affichée dans votre compte utilisateur.
+Pas de clé ? Utilisez celle-ci pour tester l'app : 276cc6afca8905b9ad02fc3fd2a0d824667d4e04
+Renseigner la clé dans le fichier `my-app/tp-kafka/resources/velib-get-stations.py`
 
-Si votre clé d'API est "XXX", vous pouvez la renseigner dans le fichier `my-app/tp-kafka/resources/velib-get-stations.py`
+```bash
+API_KEY = "XXX" # Pas de clé api ? Utilisez celle ci pour un test : 276cc6afca8905b9ad02fc3fd2a0d824667d4e04
+
+```
 
 ### 3. Lancer le docker-compose en mode détaché
 
@@ -40,9 +63,7 @@ docker exec -it kafka-kafdrop-kafka-1 /bin/bash
 apk add --no-cache python3 py3-pip; pip3 install kafka-python
 ```
 
-### [Conteneur] Lancer les deux script dans deux terminaux différents
-
-Lancer `velib-get-stations.py` dans un terminal
+### [Conteneur] Lancer le script `velib-get-stations.py`
 
 ```bash
 python3 opt/kafka/bin/resources/velib-get-stations.py
