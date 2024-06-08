@@ -30,7 +30,7 @@ Créer un compte sur https://developer.jcdecaux.com/#/signup.
 
 Une fois que vous aurez créé votre compte, vous disposerez d'une clé d'API affichée dans votre compte utilisateur.
 Pas de clé ? Utilisez celle-ci pour tester l'app : 276cc6afca8905b9ad02fc3fd2a0d824667d4e04
-Renseigner la clé dans le fichier `my-app/tp-kafka/resources/velib-get-stations.py`
+Renseigner la clé dans le fichier `setup.sh`
 
 ```bash
 API_KEY = "XXX" # Pas de clé api ? Utilisez celle ci pour un test : 276cc6afca8905b9ad02fc3fd2a0d824667d4e04
@@ -63,20 +63,6 @@ docker exec -it kafka-kafdrop-kafka-1 /bin/bash
 apk add --no-cache python3 py3-pip; pip3 install kafka-python
 ```
 
-<<<<<<< HEAD
-
-### [Conteneur] Lancer le script `velib-get-stations.py`
-
-=======
-
-### Renseigner votre clé API dans le fichier `velib-get-stations.py`
-
-```bash
-API_KEY = "XXX" # Pas de clé api ? Utilisez celle ci pour un test : 276cc6afca8905b9ad02fc3fd2a0d824667d4e04
-
-=======
-```
-
 ### Rendre le container `obsidiandynamics/kafka` interactif
 
 ```bash
@@ -92,8 +78,6 @@ apk add --no-cache python3 py3-pip; pip3 install kafka-python
 ### [Conteneur] Lancer les deux script dans deux terminaux différents
 
 Lancer `velib-get-stations.py` dans un terminal
-
-> > > > > > > e28090d449615baf1c1c0c930b683fa93438391b
 
 ```bash
 python3 opt/kafka/bin/resources/velib-get-stations.py
