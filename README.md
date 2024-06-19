@@ -63,9 +63,7 @@ docker exec -it kafka-kafdrop-kafka-1 /bin/bash
 apk add --no-cache python3 py3-pip; pip3 install kafka-python
 ```
 
-### 5. [Conteneur] Lancer les deux script dans deux terminaux différents
-
-Lancer `velib-get-stations.py` dans un terminal
+### 5. [Conteneur] Lancer `velib-get-stations.py`
 
 ```bash
 python3 opt/kafka/bin/resources/velib-get-stations.py
