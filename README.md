@@ -51,7 +51,7 @@ docker compose build
 docker compose up -d
 ```
 
-### 3. Rendre le container `obsidiandynamics/kafka` interactif
+### 3. Rendre le container `kafka-kafdrop-kafka-1` interactif
 
 ```bash
 docker exec -it kafka-kafdrop-kafka-1 /bin/bash
@@ -63,19 +63,7 @@ docker exec -it kafka-kafdrop-kafka-1 /bin/bash
 apk add --no-cache python3 py3-pip; pip3 install kafka-python
 ```
 
-### 5. Rendre le container `obsidiandynamics/kafka` interactif
-
-```bash
-docker exec -it kafka-kafdrop-kafka-1 /bin/bash
-```
-
-### 6. [Conteneur] Installer Python et kafka-python
-
-```bash
-apk add --no-cache python3 py3-pip; pip3 install kafka-python
-```
-
-### 7. [Conteneur] Lancer les deux script dans deux terminaux différents
+### 5. [Conteneur] Lancer les deux script dans deux terminaux différents
 
 Lancer `velib-get-stations.py` dans un terminal
 
