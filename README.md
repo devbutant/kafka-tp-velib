@@ -1,3 +1,5 @@
+# Groupe : Paul, Benjamin, Laurent, Emmanuel
+
 # Procédure de lancement du projet
 
 ### 1. Clôner ce projet
